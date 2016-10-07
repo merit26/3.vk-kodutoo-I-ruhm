@@ -9,12 +9,18 @@
       var correctAnswers = 0;
       var startTime;
       function newQuestion(){
-        startTime= Date.now();
-        question[0]=Math.floor(Math.random()*10 +1);
-        question[1]=Math.floor(Math.random()*10 +1);
+        startTime = Date.now();
+        question[0] = Math.floor(Math.random()*10 +1);
+        question[1] = Math.floor(Math.random()*10 +1);
         $('h2').text(question[0] +'*'+question[1]);
       }
       function checkAnswer(){
+        if (parseInt($("input:first").val()) == question[0]*question[1]){
+          correctAnswers++;
+        }
+        totalAnswers++;
+        $('h3').text(correctAnswers+'/'+totalAnswers);
+        $("input:first").val('');
 
 
       }
