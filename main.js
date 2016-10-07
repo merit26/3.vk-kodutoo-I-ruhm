@@ -26,12 +26,13 @@
         $("input:first").val('');  //inputi väärtuse tühjendamine, jquery
       }
       function saveData(correct){        //AJAX salvestamine
-        $.post("info.php", {
+        var promise = $.post("info.php", {
           data: {
             question: question,
             answer: correct,
             time: Date.now()-startTime
-          }});
+          }
+        });
       }
 
 
